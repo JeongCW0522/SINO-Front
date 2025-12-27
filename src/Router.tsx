@@ -1,6 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 import App from './App';
 import Hompage from './pages/Hompage';
+import OnBoadingPage from './pages/OnBoardingPage';
 
 const router = createBrowserRouter([
   {
@@ -10,6 +11,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Hompage />,
+      },
+      {
+        path: 'onboarding',
+        element: <OnBoadingPage />,
       },
     ],
   },
