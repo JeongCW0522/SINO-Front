@@ -4,7 +4,7 @@ const LoginPage = () => {
   return (
     <div className='min-h-screen flex flex-col items-center justify-center text-white'>
       <div className='flex flex-col items-center justify-center space-y-30'>
-        <h1 className='text-3xl font-medium tracking-wide'>Create an account</h1>
+        <h1 className='text-3xl font-medium tracking-wide'>Login</h1>
 
         <form className='flex flex-col items-center'>
           <div className='flex flex-col items-center gap-3 mb-40'>
