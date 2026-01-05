@@ -3,6 +3,8 @@ import App from './App';
 import Hompage from './pages/Hompage';
 import OnBoadingPage from './pages/OnBoardingPage';
 import ErrorPage from './pages/ErrorPage';
+import SignupPage from './pages/auth/SignupPage';
+import LoginPage from './pages/auth/LoginPage';
 
 const router = createBrowserRouter([
   {
@@ -17,6 +19,14 @@ const router = createBrowserRouter([
       {
         path: 'onboarding',
         element: <OnBoadingPage />,
+      },
+      {
+        path: 'signup',
+        element: <SignupPage />,
+      },
+      {
+        path: 'login',
+        element: <LoginPage />,
       },
     ],
   },
