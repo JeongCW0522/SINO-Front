@@ -8,7 +8,7 @@ const SignupPage = () => {
 
         <form className='flex flex-col items-center'>
           <div className='flex flex-col items-center gap-3 mb-40'>
-            <label className='text-xl tracking-wide'>Name</label>
+            <label className='text-lg font-semibold text-white/90 tracking-wide'>Name</label>
             <div className='relative'>
               <input
                 type='text'
