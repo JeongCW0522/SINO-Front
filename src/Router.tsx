@@ -5,6 +5,7 @@ import OnBoadingPage from './pages/OnBoardingPage';
 import ErrorPage from './pages/ErrorPage';
 import SignupPage from './pages/auth/SignupPage';
 import LoginPage from './pages/auth/LoginPage';
+import SelectDate from './pages/SelectDate';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const router = createBrowserRouter([
       {
         path: 'login',
         element: <LoginPage />,
+      },
+      {
+        path: 'select-date',
+        element: <SelectDate />,
       },
     ],
   },

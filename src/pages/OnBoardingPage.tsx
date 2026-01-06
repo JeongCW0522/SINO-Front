@@ -16,7 +16,7 @@ const OnBoadingPage = () => {
         <div className='absolute bottom-0 h-40 w-full bg-linear-to-t from-black to-transparent' />
       </div>
 
-      <div className='h-full overflow-hidden blur-xs'>
+      <div className='h-full overflow-hidden blur-xs max-md:hidden'>
         <motion.div
           className='flex flex-col'
           animate={{ y: ['0%', '-50%'] }}
@@ -54,7 +54,7 @@ const OnBoadingPage = () => {
         </div>
       </div>
 
-      <div className='h-full overflow-hidden blur-xs'>
+      <div className='h-full overflow-hidden blur-xs max-md:hidden'>
         <motion.div
           className='flex flex-col'
           animate={{ y: ['-50%', '0%'] }}
