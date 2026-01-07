@@ -6,17 +6,15 @@ import { ChevronDown } from 'lucide-react';
 interface DropdownProps {
   items: string[];
   className?: string;
+  // eslint-disable-next-line no-unused-vars
+  onChange?: (value: string) => void;
 }
 
 type Slot = string | null;
 
-const Dropdown = ({ items, className }: DropdownProps) => {
+const Dropdown = ({ items, className, onChange }: DropdownProps) => {
   const [open, setOpen] = useState(false);
-
-  // 확정된 값 (버튼에 표시)
   const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
-
-  // 스크롤/미리보기 값
   const [previewIndex, setPreviewIndex] = useState(0);
 
   const clampIndex = (index: number) => Math.max(0, Math.min(items.length - 1, index));
@@ -34,6 +32,7 @@ const Dropdown = ({ items, className }: DropdownProps) => {
 
   const handleSelect = () => {
     setSelectedIndex(previewIndex);
+    onChange?.(items[previewIndex]);
     setOpen(false);
   };
 
@@ -48,13 +47,11 @@ const Dropdown = ({ items, className }: DropdownProps) => {
   const handleItemClick = (slotIndex: number) => {
     const targetIndex = clampIndex(previewIndex + (slotIndex - 1));
 
-    // 가운데면 선택 확정
     if (slotIndex === 1) {
       handleSelect();
       return;
     }
 
-    // 위/아래면 가운데로 이동만
     setPreviewIndex(targetIndex);
   };
 
@@ -62,6 +59,7 @@ const Dropdown = ({ items, className }: DropdownProps) => {
     <div className='flex items-center justify-center'>
       <div className={clsx('relative min-w-40', className)}>
         <button
+          type='button'
           onClick={handleOpen}
           className='relative w-full bg-[#E1E0E0] py-2 rounded-full text-lg font-semibold'
         >

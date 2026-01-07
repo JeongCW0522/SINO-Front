@@ -1,12 +1,20 @@
 import Button from '@/components/common/Button';
 import Dropdown from '@/components/common/Dropdown';
 import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+import clsx from 'clsx';
 
 const yearItems = ['2021', '2022', '2023', '2024', '2025'];
 const monthItems = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
 
 const SelectDate = () => {
   const navigate = useNavigate();
+
+  const [year, setYear] = useState<string | null>(null);
+  const [month, setMonth] = useState<string | null>(null);
+
+  const isDisabled = !year || !month;
+
   return (
     <main className='min-h-screen flex flex-col items-center justify-center text-white'>
       <div className='flex flex-col items-center justify-center space-y-30'>
@@ -19,17 +27,25 @@ const SelectDate = () => {
                 <span>Choose the </span>
                 <span className='text-[#FF6F4B]'>Year</span>
               </div>
-              <Dropdown items={yearItems} className='w-105' />
+              <Dropdown items={yearItems} className='w-105' onChange={setYear} />
             </div>
 
             <div className='flex flex-col items-center gap-3'>
               <div className='text-lg font-semibold text-[#FF6F4B]'>Month</div>
-              <Dropdown items={monthItems} />
+              <Dropdown items={monthItems} onChange={setMonth} />
             </div>
           </div>
 
-          <Button type='button' onClick={() => navigate('/')} className='text-black'>
-            Get started
+          <Button
+            type='button'
+            disabled={isDisabled}
+            onClick={() => navigate('/')}
+            className={clsx(
+              'text-black transition-opacity',
+              isDisabled && 'opacity-40 cursor-not-allowed',
+            )}
+          >
+            Continue
           </Button>
         </div>
       </div>
